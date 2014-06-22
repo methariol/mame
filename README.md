@@ -21,10 +21,10 @@ $ git config --global push.default "simple"
 // 設定の確認
 $ git config --list --global
  // ~/.gitconfigにgitクライアントの設定ファイルが作成される
- ```
+```
 
- ## terminalにブランチ名を表示する
- ```sh
+## terminalにブランチ名を表示する
+```sh
 $ cp /opt/local/share/git-core/contrib/completion/git-prompt.sh ~/.git-promt.sh
 $ cp /opt/local/share/git-core/contrib/completion/git-completion.bash ~/.git-completion.bash
 $ vi ~/.bash_profile
@@ -40,11 +40,14 @@ GIT_PS1_SHOWDIRTYSTATE=true
 PS1="[\h@\u:\W\$(__git_ps1)]\$ "
 ------------------------------------------
 $ source ~/.bashrc
- ```
-
- ## 開発環境
 ```
+
+## 開発環境
+```sh
 $ mkdir ~/Documents/git
 $ cd ~/Documents/git
 $ git clone https://github.com/methariol/mame.git
+
+$ cd ~/Sites
+$ ln -s ~/Documents/git/mame/public mame
 ```
