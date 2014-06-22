@@ -50,4 +50,5 @@ $ git clone https://github.com/methariol/mame.git
 
 $ cd ~/Sites
 $ ln -s ~/Documents/git/mame/public mame
+// 各ディレクトリの第三者権限にrとxを付与
 ```
