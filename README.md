@@ -53,3 +53,12 @@ $ ln -s ~/Documents/git/mame/public mame
 // 各ディレクトリの第三者権限にrとxを付与
 // Apacheの設定ファイルに、Options MultiViews FollowSymlinksないなら追記
 ```
+
+## APIキー
+```
+localhostのみで動作するテスト用APIキー
+
+6165842a-5c0d-11e3-b514-75d3313b9d05
+
+※正式なAPIキーの発行は後日
+```
