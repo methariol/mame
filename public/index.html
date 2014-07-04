@@ -4,6 +4,45 @@
 		<title>index</title>
 	</head>
 	<body>
-		Hello World
+	<FORM>
+		<INPUT type="text" name="namae" id="hoge">
+		<input type="button" id="send" value="go">
+	</FORM>
+		<script src="https://skyway.io/dist/v2/0.3/peer.min.js"></script>
+		<script>
+			var peer = new Peer({key : "6165842a-5c0d-11e3-b514-75d3313b9d05", debug : 3});
+			var button = document.getElementById("send");
+			var conn;
+			button.onclick = function() { 
+			 	var anotherID =  document.getElementById("hoge").value;
+				console.log("connect to "+ anotherID);
+				conn = peer.connect(anotherID);
+				conn.send('Hello!');
+				conn.on('data', function(data) {
+    					console.log('Received', data);
+  				});
+			};
+			peer.on('open', function(id) {
+				console.log("peer.on('open') called.");
+  				console.log('My peer ID is: ' + id);
+			});
+			peer.on('connection', function(re_conn) {
+					console.log("peer.on('connection') called.");
+					conn = re_conn;
+					conn.on('data', function(data) {
+						console.log("conn.on('data') called.");
+    					console.log('Received', data);
+  					});
+  					conn.on('open', function() {
+						console.log("conn.on('open') called.");
+  					});
+  				    conn.on('error', function(e){
+  				    	console.log("conn.on('error') called.");
+  						console.log(e);
+  				    });
+  				    conn.on();
+			});
+</script>
+</body></script>
 	</body>
 </html>
