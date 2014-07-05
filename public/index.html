@@ -1,57 +1,30 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>index</title>
-	</head>
-	<body>
+<head>
+	<title>chat</title>
+	<meta charset="utf-8">
+
+	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+
+<body>
 	<FORM>
 		<INPUT type="text" name="namae" id="hoge">
 		<input type="button" id="send" value="go">
 	</FORM>
-		<script src="https://skyway.io/dist/v2/0.3/peer.min.js"></script>
-		<script>
-			var peer = new Peer({key : "6165842a-5c0d-11e3-b514-75d3313b9d05", debug : 3});
-			var button = document.getElementById("send");
-			
-			button.onclick = function() { 
-			 	var anotherID =  document.getElementById("hoge").value;
-				console.log("connect to "+ anotherID);
-				var conn = peer.connect(anotherID);
-				conn.on('open', function() {
-					conn.send("Hello!");			
-				});
-				conn.on('data', function(data) {
-						console.log("conn.on('data') called.");
-						conn.on('data', function(data) {
-							console.log("conn.on('data') called.");
-    						console.log('Received', data);
-  						});
-						conn.send('Hello! This is Host');
-    					console.log('Received', data);
-  				});  				
-  			};
-  			
-			peer.on('open', function(id) {
-				console.log("peer.on(open) called.");
-  				console.log('My peer ID is: ' + id);
-			});
-			
-			peer.on('connection', function(conn) {
-					console.log("peer.on('connection') called.");
-  					conn.on('open', function() {
-						console.log("conn.on('open') called.");
-						conn.on('data', function(data) {
-							console.log("conn.on('data') called.");
-    						console.log('Received', data);
-  						});
-  					});
-  				    conn.on('error', function(e){
-  				    	console.log("conn.on('error') called.");
-  						console.log(e);
-  				    });
-			});
-			
+
+<script src="js/jquery-2.0.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="https://skyway.io/dist/v2/0.3/peer.min.js"></script>
+<script src="js/mame.js"></script>
+<script>
+	mame.init();
+
+	$("#send").on("click", function(){
+		mame.connecting(document.getElementById("hoge").value);
+	});
+
 </script>
-</body></script>
-	</body>
+</body>
+
 </html>
