@@ -8,10 +8,22 @@
 </head>
 
 <body>
-	<FORM>
-		<INPUT type="text" name="namae" id="hoge">
-		<input type="button" id="send" value="go">
-	</FORM>
+	<form>
+		<div>
+		<input type="text" id="anotherid" placeholder="接続先ID">
+		<input type="button" id="connect" value="connect">
+		</div>
+		<div>
+		<input type="text" id="msg" placeholder="メッセージ">
+		<input type="button" id="send" value="send">
+		</div>
+	</form>
+
+	<hr>
+	<div id="peers"></div>
+
+	<hr>
+	<div id="msgarea"></div>
 
 <script src="js/jquery-2.0.3.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -20,8 +32,12 @@
 <script>
 	mame.init();
 
+	$("#connect").on("click", function(){
+		mame.connecting(document.getElementById("anotherid").value);
+	});
+
 	$("#send").on("click", function(){
-		mame.connecting(document.getElementById("hoge").value);
+		mame.send(document.getElementById("msg").value);
 	});
 
 </script>
