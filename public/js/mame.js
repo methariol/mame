@@ -50,6 +50,12 @@ var mame = function() {
 		send : function(msg) {
 			var conn = peer.connections[connectId][0];
 			conn.send(msg);
+		},
+
+		close : function() {
+			if (!!peer && !peer.destroyed) {
+				peer.destroy();
+			}
 		}
 	}
 }();

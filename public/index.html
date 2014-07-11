@@ -40,6 +40,9 @@
 		mame.send(document.getElementById("msg").value);
 	});
 
+	window.onunload = window.onbeforeunload = function(e) {
+		mame.close();
+	}
 </script>
 </body>
 
